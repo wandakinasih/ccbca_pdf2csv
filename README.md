@@ -4,4 +4,11 @@ Langkah penggunaan:
 3. Isi direktori pdf cc bca, contohnya: `/Users/wanda.kinasih/Downloads/CC_BCA_PDF_aug23.pdf`
 4. Silakan ditunggu sampai `transaction.csv` muncul :D
 
-![alt text](https://github.com/wandakinasih/ccbca_pdf2csv/blob/56b9dae9a99c1bc1204c62c31853a9145e5ebf59/Screen%20Shot%202023-08-28%20at%2016.53.46.png)
+example
+```
+$ python /Users/wanda/Downloads/cc_bca_pdf2csv.py
+
+Masukkan path ke PDF CC BCA ada:
+>>/Users/wanda/Downloads/cc_bca_pdf_aug32.pdf
+Done!
+```
