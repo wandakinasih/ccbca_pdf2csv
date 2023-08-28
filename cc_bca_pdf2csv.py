@@ -42,6 +42,6 @@ def parse(file):
     df_clean.to_csv("transaction.csv")
 
 if __name__ == "__main__":
-    text = input("Masukkan path ke PDF CC BCA anda: (contoh /Users/wanda.kinasih/Downloads/CC_BCA_PDF_aug23.pdf)\n")
+    text = input("Masukkan path ke PDF CC BCA anda:\n")
     parse(text)
     print("Done!")
