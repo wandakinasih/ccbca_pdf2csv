@@ -1,3 +1,11 @@
+Jika belum install library berikut silakan install menggunakan pip
+```
+tabula
+pandas
+PyPDF2
+numpy
+```
+
 Langkah penggunaan:
 1. Download file `cc_bca_pdf2csv.py`
 2. Execute dengan command `python cc_bca_pdf2csv.py`
