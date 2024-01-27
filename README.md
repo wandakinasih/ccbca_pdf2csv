@@ -1,9 +1,8 @@
 Jika belum install library berikut silakan install menggunakan pip
 ```
-tabula
+tabula-py (bukan tabula)
 pandas
 PyPDF2
-numpy
 ```
 
 Langkah penggunaan:
