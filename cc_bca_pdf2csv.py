@@ -15,21 +15,22 @@ def parse(file):
             data_temp = tb.read_pdf(file, area = (320, 0, 660, 800), pages = 'all', pandas_options={'header': None, 'dtype': str}, stream=True)[i]
         else:
             data_temp = tb.read_pdf(file, area = (160, 0, 800, 800), pages = 'all', pandas_options={'header': None, 'dtype': str}, stream=True)[i]
-
-        if (data_temp[data_temp.columns[-1]].eq('CR').any()):
-            data_temp['amount'] = data_temp[data_temp.columns[-2]]
-            data_temp['flag'] = np.where(data_temp[data_temp.columns[-2]].isnull(), 'DR', 'CR')
-        else:
-            data_temp['amount'] = data_temp[data_temp.columns[-1]]
-            data_temp['flag'] = 'DR'
-
-        data = data_temp[[0,2,'amount','flag']]
-        data.columns = ['date', 'description', 'amount', 'flag']
-        
-        if i==0:
-            df = data.copy()
-        else:
-            df = pd.concat([df,data], ignore_index=True)
+            
+        if(data_temp.shape[1]>=3):
+            if (data_temp[data_temp.columns[-1]].eq('CR').any()):
+                data_temp['amount'] = data_temp[data_temp.columns[-2]]
+                data_temp['flag'] = np.where(data_temp[data_temp.columns[-2]].isnull(), 'DR', 'CR')
+            else:
+                data_temp['amount'] = data_temp[data_temp.columns[-1]]
+                data_temp['flag'] = 'DR'
+    
+            data = data_temp[[0,2,'amount','flag']]
+            data.columns = ['date', 'description', 'amount', 'flag']
+            
+            if i==0:
+                df = data.copy()
+            else:
+                df = pd.concat([df,data], ignore_index=True)
         i+=1
 
     df['amount'] = df['amount'].str.replace(".", "")
